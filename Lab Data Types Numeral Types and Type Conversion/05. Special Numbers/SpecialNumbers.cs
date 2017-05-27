@@ -14,13 +14,25 @@ namespace _05.Special_Numbers
 
             for (int i = 1; i <= n; i++)
             {
-
+                int num1 = i % 10;
+                int num2 = i / 10;
+                if (num1 + num2 == 5)
+                {
+                    Console.WriteLine($"{i} -> True");
+                }
+                else if (num1 + num2 == 7)
+                {
+                    Console.WriteLine($"{i} -> True");
+                }
+                else if (num1 + num2 ==11)
+                {
+                    Console.WriteLine($"{i} -> True");
+                }
+                else
+                {
+                    Console.WriteLine($"{i} -> False"); 
+                }
             }
-
-
-
-
-
         }
     }
 }
