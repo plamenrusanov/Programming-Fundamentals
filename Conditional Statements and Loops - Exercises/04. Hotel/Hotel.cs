@@ -63,7 +63,7 @@ namespace _04.Hotel
                     if (mount == "may")
                     {
                         Console.WriteLine("Studio: {0:f2} lv.", (nights * 50) * 0.95);
-                    }
+                    }                  
                     else
                     {
                         Console.WriteLine("Studio: {0:f2} lv.", (night * 50) * 0.95);
@@ -88,7 +88,7 @@ namespace _04.Hotel
                 {
                     Console.WriteLine("Studio: {0:f2} lv.", nights * 68);
                     Console.WriteLine("Double: {0:f2} lv.", nights * 77);
-                    Console.WriteLine("Suite: {0:f2} lv.", (nights * 89) * 0.85);
+                    Console.WriteLine("Suite: {0:f2} lv.", nights * 89);
                 }
             }
             else
