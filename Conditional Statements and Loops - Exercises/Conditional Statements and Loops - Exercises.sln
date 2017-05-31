@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "14. Magic Letter", "14. Mag
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "15. Neighbour Wars", "15. Neighbour Wars\15. Neighbour Wars.csproj", "{84A2C8E9-3EE1-4E6E-A576-02EF3BEC87C9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03. NewRestaurantDiscount", "03. NewRestaurantDiscount\03. NewRestaurantDiscount.csproj", "{9C76F3A7-14E6-415A-A25F-5C7A4A40BC96}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{84A2C8E9-3EE1-4E6E-A576-02EF3BEC87C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84A2C8E9-3EE1-4E6E-A576-02EF3BEC87C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84A2C8E9-3EE1-4E6E-A576-02EF3BEC87C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C76F3A7-14E6-415A-A25F-5C7A4A40BC96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C76F3A7-14E6-415A-A25F-5C7A4A40BC96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C76F3A7-14E6-415A-A25F-5C7A4A40BC96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C76F3A7-14E6-415A-A25F-5C7A4A40BC96}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
