@@ -13,11 +13,13 @@ namespace _05.BPM_Counter
             int beatPerMinute = int.Parse(Console.ReadLine());
             double beats = double.Parse(Console.ReadLine());
 
-            double bars = Math.Round(beats / 4d,1);
-            double minutes = beatPerMinute / beats;
-            double secands = (beatPerMinute % beats) / beats;
-            Console.WriteLine(beatPerMinute % beats);
-            Console.WriteLine(secands);
+            double bars = Math.Round(beats / 4d, 1);
+            int minutes = (int)(beats / beatPerMinute);
+            double coeficient = (beatPerMinute / 60d);
+            int sec = (int)(beats / coeficient) % 60;
+
+
+            Console.WriteLine($"{bars} bars - {minutes}m {sec}s");
         }
     }
 }
