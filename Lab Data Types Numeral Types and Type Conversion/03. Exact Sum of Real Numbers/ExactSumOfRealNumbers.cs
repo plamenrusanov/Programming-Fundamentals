@@ -12,12 +12,12 @@ namespace _03.Exact_Sum_of_Real_Numbers
         {
             int n = int.Parse(Console.ReadLine());
 
-            decimal sum = 0m;
+            decimal sum = 1m;
 
             for (int i = 0; i < n; i++)
             {
                 decimal num = decimal.Parse(Console.ReadLine());
-                sum += num;
+                sum *= num;
             }
             Console.WriteLine(sum);
         }

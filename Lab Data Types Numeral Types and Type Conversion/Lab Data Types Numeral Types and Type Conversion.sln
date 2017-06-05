@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08. Refactor Volume of Pyra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09. Refactor Special Numbers", "09. Refactor Special Numbers\09. Refactor Special Numbers.csproj", "{9E929B90-6663-4618-8913-FCEB445CD94D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. Time Since Birthday", "01. Time Since Birthday\01. Time Since Birthday.csproj", "{B89707BD-B89C-4648-90D2-A7464F30E2CF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{9E929B90-6663-4618-8913-FCEB445CD94D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E929B90-6663-4618-8913-FCEB445CD94D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E929B90-6663-4618-8913-FCEB445CD94D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B89707BD-B89C-4648-90D2-A7464F30E2CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B89707BD-B89C-4648-90D2-A7464F30E2CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B89707BD-B89C-4648-90D2-A7464F30E2CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B89707BD-B89C-4648-90D2-A7464F30E2CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

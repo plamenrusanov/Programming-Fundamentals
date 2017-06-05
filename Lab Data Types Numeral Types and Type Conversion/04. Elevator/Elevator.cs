@@ -11,7 +11,7 @@ namespace _04.Elevator
         static void Main(string[] args)
         {
             int persons = int.Parse(Console.ReadLine());
-            int capacity = int.Parse(Console.ReadLine());
+            int capacity = 24;
 
             Console.WriteLine("{0}", (int)Math.Ceiling((double)persons / capacity));
         }

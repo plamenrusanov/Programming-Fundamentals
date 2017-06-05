@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _02.Circle_Area
+namespace _04.Float_or_Integer
 {
-    class CircleArea
+    class FloatOrInteger
     {
         static void Main(string[] args)
         {
-            double r = double.Parse(Console.ReadLine());
+            double num = double.Parse(Console.ReadLine());
 
-            Console.WriteLine("{0:f12}", Math.PI * r * 2);
+            Console.WriteLine(Math.Round(num));
         }
     }
 }
