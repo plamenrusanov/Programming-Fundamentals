@@ -88,6 +88,26 @@ namespace _07.Numbers_to_Words
             }
             return wordDigit;
         }
+        static string stringNum(int number)
+        {
+            int digit = number % 10;
+            string wordDigit = string.Empty;
+            switch (digit)
+            {
+                case 1: wordDigit = " and one"; break;
+                case 2: wordDigit = " and two"; break;
+                case 3: wordDigit = " and three"; break;
+                case 4: wordDigit = " and four"; break;
+                case 5: wordDigit = " and five"; break;
+                case 6: wordDigit = " and six"; break;
+                case 7: wordDigit = " and seven"; break;
+                case 8: wordDigit = " and eight"; break;
+                case 9: wordDigit = " and nine"; break;
+                default:
+                    break;
+            }
+            return wordDigit;
+        }
         static string PrintNumbersToWord(int num)
         {
             string minus = string.Empty;
@@ -102,19 +122,21 @@ namespace _07.Numbers_to_Words
                 {
                     WordOfTens(number);
                     wordOfNumber = wordOfNumber + WordOfTens(number);
+                    if (number % 10 != 0)
+                    {
+                        WordOfDigit(number);
+                        wordOfNumber = wordOfNumber + WordOfDigit(number);
+                    }
                 }
-              
                 if (number % 100 >= 10 && number % 100 <= 19)
                 {
                     WordOfTeens(number);
                     wordOfNumber = wordOfNumber + WordOfTeens(number);
-
                 }
-                else
+                if (number % 100 >= 1 && number % 100 <= 9)
                 {
-                    WordOfDigit(number);
-                    wordOfNumber = wordOfNumber + WordOfDigit(number);
-
+                    stringNum(number);
+                    wordOfNumber += stringNum(number);
                 }
                 if (num < 0)
                 {
@@ -122,7 +144,7 @@ namespace _07.Numbers_to_Words
                     wordOfNumber = minus + wordOfNumber;
 
                 }
-              
+
             }
             else if (num >= 1000)
             {
@@ -132,7 +154,7 @@ namespace _07.Numbers_to_Words
             {
                 wordOfNumber = "too small";
             }
-           
+
 
             return wordOfNumber;
         }
