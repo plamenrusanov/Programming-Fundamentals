@@ -10,34 +10,30 @@ namespace _17.Altitude
     {
         static void Main(string[] args)
         {
-            string[] pilot = Console.ReadLine().Split(' ');
+            string[] pilot = Console.ReadLine().Split(' ').ToArray();
 
-            int altitude = int.Parse(pilot[0]);
-            int currentNum = 0;
-            bool upDown = true;
+            double altitude = double.Parse(pilot[0]);
+            double currentNum = 0;
+            int upDown = 0;
             for (int i = 1; i < pilot.Length; i++)
             {
                 if (i % 2 == 0)
                 {
-                    currentNum = int.Parse(pilot[i]);
-                    if (upDown)
+                    currentNum = double.Parse(pilot[i]);
+                    switch (upDown)
                     {
-                        altitude += currentNum;
-                    }
-                    else
+                        case 1: altitude += currentNum;break;
+                        case 2: altitude -= currentNum;break;
+                    }                
+                }
+                else if (i % 2 != 0)
+                {
+                    switch (pilot[i])
                     {
-                        altitude -= currentNum;
+                        case "up": upDown = 1; break;
+                        case "down": upDown = 2; break;
                     }
                 }
-                if (pilot[i] == "up")
-                {
-                    upDown = true;
-                }
-                else if (pilot[i] == "down")
-                {
-                    upDown = false;
-                }
-
                 if (altitude <= 0)
                 {
                     Console.WriteLine("crashed");

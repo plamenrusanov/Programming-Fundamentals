@@ -8,10 +8,10 @@ namespace _07.Numbers_to_Words
 {
     class NumbersToWords
     {
-        static string WordOfHundred(int number)
+        static string WordOfHundred(long number)
         {
             string hundred = string.Empty;
-            int digitOfHundred = number / 100;
+            long digitOfHundred = number / 100;
             switch (digitOfHundred)
             {
                 case 1: hundred = "one-hundred"; break;
@@ -27,9 +27,9 @@ namespace _07.Numbers_to_Words
             }
             return hundred;
         }
-        static string WordOfTens(int number)
+        static string WordOfTens(long number)
         {
-            int digitTens = (number / 10) % 10;
+            long digitTens = (number / 10) % 10;
             string wordTens = string.Empty;
             switch (digitTens)
             {
@@ -46,9 +46,9 @@ namespace _07.Numbers_to_Words
             }
             return wordTens;
         }
-        static string WordOfTeens(int number)
+        static string WordOfTeens(long number)
         {
-            int digitTeen = number % 100;
+            long digitTeen = number % 100;
             string wordTeen = string.Empty;
             switch (digitTeen)
             {
@@ -56,7 +56,7 @@ namespace _07.Numbers_to_Words
                 case 11: wordTeen = " and eleven"; break;
                 case 12: wordTeen = " and twelve"; break;
                 case 13: wordTeen = " and thirteen"; break;
-                case 14: wordTeen = " and forteen"; break;
+                case 14: wordTeen = " and fourteen"; break;
                 case 15: wordTeen = " and fifteen"; break;
                 case 16: wordTeen = " and sixteen"; break;
                 case 17: wordTeen = " and seventeen"; break;
@@ -67,10 +67,10 @@ namespace _07.Numbers_to_Words
             }
             return wordTeen;
         }
-        static string WordOfDigit(int number)
+        static string WordOfDigit(long number)
         {
 
-            int digit = number % 10;
+            long digit = number % 10;
             string wordDigit = string.Empty;
             switch (digit)
             {
@@ -88,9 +88,9 @@ namespace _07.Numbers_to_Words
             }
             return wordDigit;
         }
-        static string stringNum(int number)
+        static string stringNum(long number)
         {
-            int digit = number % 10;
+            long digit = number % 10;
             string wordDigit = string.Empty;
             switch (digit)
             {
@@ -108,16 +108,19 @@ namespace _07.Numbers_to_Words
             }
             return wordDigit;
         }
-        static string PrintNumbersToWord(int num)
+        static string PrintNumbersToWord(long num)
         {
             string minus = string.Empty;
             string wordOfNumber = string.Empty;
-            int number = Math.Abs(num);
-            if (number >= 100 && number <= 999)
+            long number = Math.Abs(num);
+            if (number >= 0 && number <= 99) 
+            {
+                return wordOfNumber;
+            }
+            else if (number >= 100 && number <= 999)
             {
                 WordOfHundred(number);
                 wordOfNumber = wordOfNumber + WordOfHundred(number);
-
                 if (number % 100 >= 20 && number % 100 <= 99)
                 {
                     WordOfTens(number);
@@ -142,9 +145,7 @@ namespace _07.Numbers_to_Words
                 {
                     minus = "minus ";
                     wordOfNumber = minus + wordOfNumber;
-
                 }
-
             }
             else if (num >= 1000)
             {
@@ -154,18 +155,19 @@ namespace _07.Numbers_to_Words
             {
                 wordOfNumber = "too small";
             }
-
-
             return wordOfNumber;
         }
         static void Main(string[] args)
         {
             int n = int.Parse(Console.ReadLine());
-
             for (int i = 0; i < n; i++)
             {
-                int num = int.Parse(Console.ReadLine());
-
+                
+                long num = long.Parse(Console.ReadLine());
+                if (num >= -99 && num <= 99)
+                {
+                    continue;
+                }
                 Console.WriteLine(PrintNumbersToWord(num));
             }
         }
