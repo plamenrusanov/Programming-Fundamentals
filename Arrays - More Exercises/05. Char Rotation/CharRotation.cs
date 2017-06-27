@@ -14,19 +14,19 @@ namespace _05.Char_Rotation
             string[] SecondString = Console.ReadLine().Split();
 
             string result = "";
-          
+
             for (int i = 0; i < firstString.Length; i++)
             {
                 int firstNum = (int)firstString[i];
                 int secondNum = int.Parse(SecondString[i]);
-                if (i % 2 == 0)
+                if (secondNum % 2 == 0)
                 {
-                    int numResult = firstNum + secondNum;
+                    int numResult = firstNum - secondNum;
                     result += (char)numResult;
                 }
                 else
                 {
-                    int numResult = firstNum - secondNum;
+                    int numResult = firstNum + secondNum;
                     result += (char)numResult;
                 }
             }
