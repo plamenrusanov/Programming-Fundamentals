@@ -13,10 +13,16 @@ namespace List
         
         static void Main(string[] args)
         {
-            NewList.Sort(); // сортира във възходящ ред
-            NewList.Remove("a"); // намира и премахва първото "а"
-            NewList.RemoveAt(0); // премахва позицията която е показана в скобите
-                                 //inputText[inputWord].Contains(blackListedWords[blackWord] // true or false , съдържа ли се второто в първото
+            firstNumList = Console.ReadLine().Split().Select(int.Parse).ToList();
+            BubbleSort(firstNumList);
+            PrintList();
+            //firstNumList.Select(e => e + 2); // добавя / обработва всички елементи
+            //firstNumList.Reverse(); // ako e VOID ne se prisvoqva na promenliva
+            //int minValue = firstNumList.Min();
+            //NewList.Sort(); // сортира във възходящ ред
+            //NewList.Remove("a"); // намира и премахва първото "а"
+            //NewList.RemoveAt(0); // премахва позицията която е показана в скобите
+            //                     //inputText[inputWord].Contains(blackListedWords[blackWord] // true or false , съдържа ли се второто в първото
                                  // NewList.Add(List[List.Count - 1]); or //  NewList.Add(List[0]);  
 
             //if (PrimalList.Contains(CurrentList[cnt])) // проверява дали се съдържа елемента в списъка
@@ -26,7 +32,7 @@ namespace List
         }
         static void PrintList ()
         {
-            Console.WriteLine(string.Join(", ", NewList));
+            Console.WriteLine(string.Join(", ", firstNumList));
             Console.WriteLine(string.Join("\r\n", NewList));
 
         }
@@ -45,6 +51,29 @@ namespace List
             list.Reverse(list.IndexOf(list[1]), list.IndexOf(list[list.Count - 2]));
 
             Console.WriteLine(string.Join(" ", list));
+        }
+        static void BubbleSort(List<int>firstNumList)
+        {
+            bool IsReadySort = true;
+            do
+            {
+                IsReadySort = false;
+                for (int i = 0; i < firstNumList.Count - 1; i++)
+                {
+                    if (firstNumList[i] > firstNumList[i + 1])
+                    {
+                        Swap(i, i + 1);
+                        IsReadySort = true;
+                    }
+                }
+
+            } while (IsReadySort);
+        }
+        static void Swap(int first,int second)
+        {
+            int temp = firstNumList[first];
+            firstNumList[first] = firstNumList[second];
+            firstNumList[second] = temp;
         }
     }
 }
