@@ -38,5 +38,22 @@ namespace _04.Sort_Array_Using_Bubble_Sort
             firstNumList[first] = firstNumList[second];
             firstNumList[second] = temp;
         }
+        static void InsetionSort()
+        {
+            for (int firstIndex = 0; firstIndex < firstNumList.Count; firstIndex++)
+            {
+                for (int secondIndex = firstIndex; secondIndex > 0; secondIndex--)
+                {
+                    if (firstNumList[secondIndex] < firstNumList[secondIndex - 1])
+                    {
+                        Swap(secondIndex,secondIndex - 1 );
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+        }
     }
 }
