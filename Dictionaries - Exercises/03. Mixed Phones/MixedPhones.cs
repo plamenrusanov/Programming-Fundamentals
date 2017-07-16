@@ -36,9 +36,6 @@ namespace _03.Mixed_Phones
             {
                 Console.WriteLine($"{item.Key} -> {item.Value}");
             }
-
-
-
         }
     }
 }

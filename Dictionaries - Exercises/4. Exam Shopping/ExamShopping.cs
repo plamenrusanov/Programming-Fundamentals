@@ -37,9 +37,13 @@ namespace _4.Exam_Shopping
                 string key = stok[1];
                 int value = int.Parse(stok[2]);
 
-                if (shop.ContainsKey(key))
+                if (shop.ContainsKey(key) && shop[key] > 0)
                 {
                     shop[key] -= value;
+                }
+                else if (shop.ContainsKey(key) && shop[key] <=0)
+                {
+                    Console.WriteLine($"{key} out of stock");
                 }
                 else if (!shop.ContainsKey(key))
                 {
@@ -47,7 +51,6 @@ namespace _4.Exam_Shopping
                 }
                     stok = Console.ReadLine().Split().ToArray();
             }
-
             foreach (KeyValuePair<string, int> item in shop)
             {
                 if (item.Value > 0)
@@ -55,11 +58,6 @@ namespace _4.Exam_Shopping
                     Console.WriteLine($"{item.Key} -> {item.Value}");
                 }
             }
-
-
-
-
-
         }
     }
 }
