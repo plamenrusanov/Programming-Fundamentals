@@ -3,56 +3,46 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Globalization;
 namespace _01.Register_Users
-{
+{ 
     class Program
     {
         static void Main(string[] args)
         {
-            var data = new Dictionary<string, string>();
-            var nullData = new Dictionary<string, string>();
-            string[] input = Console.ReadLine().Split(new string[] { " -> " },
-                             StringSplitOptions.RemoveEmptyEntries).ToArray();
+            var data = new Dictionary<string, DateTime>();
+            string[] input = Console.ReadLine().Split(new string[] { " -> " }, StringSplitOptions.RemoveEmptyEntries);        
             while (input[0] != "end")
             {
-                string key = input[0];
-                string value = input[1];                              
-                if (value != "null")
+                string name = input[0];
+                DateTime timeRegistry = DateTime.ParseExact(input[1], "dd/MM/yyyy",provider: CultureInfo.InvariantCulture);
+                if (data.Count < 5)
                 {
-                    if (!data.ContainsKey(key))
-                    {
-                        data.Add(key, "");
-                    }
-                    data[key] = input[1];
+                    data.Add(name, timeRegistry);
                 }
                 else
                 {
-                    if (!nullData.ContainsKey(key))
+                    foreach (KeyValuePair<string, DateTime> item in data)
                     {
-                        nullData.Add(key, "");
+                        DateTime minValue = item.Value;
+                        if (timeRegistry < minValue && !data.ContainsKey(name))
+                        {
+                            data = data.Select(n => n = new KeyValuePair<string, DateTime> (name, timeRegistry)).ToDictionary(key => name, value => timeRegistry);
+                        }
                     }
-                    nullData[key] = input[1];
                 }
-                input = Console.ReadLine().Split(new string[] { " -> " },
-                           StringSplitOptions.RemoveEmptyEntries).ToArray();
+               
+                input = Console.ReadLine().Split(new string[] { " -> " }, StringSplitOptions.RemoveEmptyEntries);              
             }
-            string defValue = Console.ReadLine();
-            foreach (var item in data.OrderByDescending(s => s.Value.Length))
+            data = data.OrderBy(c => c.Value)
+            .ThenBy(d => d.Key.Length)
+           // .Take(5)
+           // .Reverse()
+            .ToDictionary(key => key.Key, value => value.Value);
+            foreach (var item in data.OrderByDescending(c => c.Value))
             {
-                Console.WriteLine($"{item.Key} <-> {item.Value}");
-
+                Console.WriteLine($"{item.Key} - {item.Value}");
             }
-            var newNull = new Dictionary<string, string>();
-            foreach (KeyValuePair<string, string> item in nullData)
-            {
-                newNull.Add(item.Key, defValue);
-            }
-            foreach (var item in newNull)
-            {               
-                Console.WriteLine($"{item.Key} <-> {item.Value}");
-            }
-           
-        }
+        }     
     }
 }
