@@ -63,7 +63,8 @@ namespace _06.CottageScraper
 
             while (input != "chop chop")
             {
-                string[] inputToken = input.Split(new string[] {" -> "}).ToArray();
+                string[] inputToken = input.Split(new string[] {" -> "},
+                    StringSplitOptions.RemoveEmptyEntries).ToArray();
                 string woodType = inputToken[0];
                 int length = int.Parse(inputToken[1]);
                 data.Add(new KeyValuePair<string, int>(woodType, length));
@@ -74,14 +75,14 @@ namespace _06.CottageScraper
             double average = Math.Round(data.Average(v => v.Value), 2);
             Console.WriteLine($"Price per meter: ${average}");
             var usedwoods = data.Where(key => key.Key == needWood).Where(x => x.Value >= minLegth);
-            double usedMeters = Math.Round(usedwoods.Sum(x => x.Value), 2);
-            double usPrice = Math.Round(usedMeters * average,2);
-            Console.WriteLine($"Used logs price: ${usPrice}");
+            double usedMeters =Math.Round(usedwoods.Sum(x => x.Value * average),2);
+            //double usPrice = Math.Round(usedMeters * average,2);
+            Console.WriteLine($"Used logs price: ${usedMeters}");
             var unUsedWoods = data.Where(key => key.Key != needWood).Where(x => x.Value < minLegth);
-            double unUsedMeters = Math.Round(unUsedWoods.Sum(x => x.Value), 2);
-            double unPrice = Math.Round(unUsedMeters * average * 0.25, 2);
-            Console.WriteLine($"Unused logs price: ${unPrice}");
-            Console.WriteLine($"CottageScraper subtotal: ${Math.Round(usPrice + unPrice, 2)}");
+            double unUsedMeters = Math.Round(unUsedWoods.Sum(x => x.Value * average * 0.25),2);
+           // double unPrice = Math.Round(unUsedMeters * average * 0.25, 2);
+            Console.WriteLine($"Unused logs price: ${unUsedMeters}");
+            Console.WriteLine($"CottageScraper subtotal: ${Math.Round(usedMeters + unUsedMeters, 2)}");
 
 
 

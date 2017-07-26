@@ -12,6 +12,7 @@ namespace LAB
         static List<dynamic> stringInt = new List<dynamic> { 1, "123", "Pesho", 0.2345 };
         static void SORT()
         {
+            //var Orderdata = data.OrderByDescending(bank => bank.Value.Values.Sum());// сумира стойностите на вътрешния речник
             //students = students
             //    .OrderBy(s => s.Value)
             //    .ToDictionary(key => key.Key, value => value.Value);
