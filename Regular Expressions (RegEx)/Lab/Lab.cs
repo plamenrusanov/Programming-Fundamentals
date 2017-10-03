@@ -29,8 +29,8 @@ namespace Lab
             string FixEnd = @"($|(?=\s))"; // $ край на стринга или (?=\s) празно поле в края
             string numbers = @"(^|(?<=\s))-?\d+(\.\d+)?($|(?=\s))";
            // \n nov red
-           //  \d число
-          
+           //  \d число //    \D vsichko bez chislo
+          // .* хваща всичко
            
         }
     }

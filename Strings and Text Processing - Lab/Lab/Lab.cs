@@ -30,6 +30,23 @@ namespace Lab
             sw.Stop();
             Console.WriteLine(sw.Elapsed);
             Lab.strinBilder();
+
+
+
+
+            string first = "123abcd";
+            bool isDigit = first.All(char.IsDigit);
+            bool isLetterOrDigit = first.All(char.IsLetterOrDigit);
+            bool isLetter = first.All(char.IsLetter);
+            bool isne = first.All(char.IsNumber);
+            bool isAnyDigit = first.Any(char.IsDigit);
+            Console.WriteLine(isDigit);
+            Console.WriteLine(isLetterOrDigit);
+            Console.WriteLine(isLetter);
+            Console.WriteLine(isne);
+            Console.WriteLine(isAnyDigit);
+           
+
         }
     }
     class Lab

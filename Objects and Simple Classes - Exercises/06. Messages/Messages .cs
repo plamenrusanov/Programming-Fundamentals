@@ -37,7 +37,7 @@ namespace _06.Messages
             string[] dialog = Console.ReadLine().Split();
             string send = dialog[0];
             string recip = dialog[1];
-            List<Message> Sender = users.Where(u => u.Key == send).Where(x => x.Value)
+            List<Message> Sender = users.Where(u => u.Key == send).Where(x => x.Value).
             foreach (var item in users)
             {
                 string sender = item.Key;
