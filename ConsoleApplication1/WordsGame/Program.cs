@@ -1,38 +1,93 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WordsGame
+namespace T5.Aray_Manipulator
 {
     class Program
     {
         static void Main(string[] args)
         {
-            var miner = new Dictionary<string, long>();
-            string resource = Console.ReadLine();
-            long count;
-            while (resource != "stop")
+            var numbers = Console.ReadLine()
+                .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse)
+                .ToList();
+
+            string command = Console.ReadLine();
+            List<string> commandArgs;
+            while (command != "print")
             {
-                count = long.Parse(Console.ReadLine());
-                if (miner.ContainsKey(resource))
+                commandArgs = command
+                    .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                    .ToList();
+
+                if (commandArgs[0] == "add")
                 {
-                    miner[resource] += count;
+                    numbers.Insert(int.Parse(commandArgs[1]), int.Parse(commandArgs[2]));
                 }
-                else
+                else if (commandArgs[0] == "addMany")
                 {
-                    miner.Add(resource, count);
-                  
+                    int position = int.Parse(commandArgs[1]);
+                    List<int> temp = commandArgs.Skip(2).Select(int.Parse).ToList();
+                    for (int i = 0; i < numbers.Count; i++)
+                    {
+                        if (numbers[i] == position)
+                        {
+                            for (int j = 0; j < temp.Count; j++)
+                            {
+                                numbers.Insert(i + j, temp[j]);
+                            }
+                        }
+                    }
+                   // numbers.InsertRange(int.Parse(commandArgs[1]),
+                   //     commandArgs.Skip(2).Select(int.Parse).ToList());
                 }
-                resource = Console.ReadLine();
+                else if (commandArgs[0] == "contains")
+                {
+                    int number = int.Parse(commandArgs[1]);
+                    Console.WriteLine(numbers.IndexOf(number));
+                }
+                else if (commandArgs[0] == "remove")
+                {
+                    numbers.RemoveAt(int.Parse(commandArgs[1]));
+                }
+                else if (commandArgs[0] == "shift")
+                {
+                    int number = int.Parse(commandArgs[1]);
+                    number = number % numbers.Count;
+                    int temp;
+                    for (int i = 0; i < number; i++)
+                    {
+                        temp = numbers[0];
+                        numbers.RemoveAt(0);
+                        numbers.Add(temp);
+
+
+                    }
+                    /*
+                    var rem = numbers.Take(number).ToList();
+                    numbers.RemoveRange(0, number);
+                    numbers.AddRange(rem); */
+                }
+                else if (commandArgs[0] == "sumPairs")
+                {
+                    int sum;
+                    for (int i = 0; i < numbers.Count - 1; i++)
+                    {
+                        sum = numbers[i] + numbers[i + 1];
+                        numbers[i] = sum;
+                        numbers.RemoveAt(i + 1);
+                    }
+                }
+                command = Console.ReadLine();
+
             }
-            foreach (var item in miner)
-            {
-                Console.WriteLine("{0} -> {1}", item.Key, item.Value);
-            }
-            Dictionary<Dictionary<string, int>, Dictionary<string, int>> countryStats =
-new Dictionary<Dictionary<string, int>, Dictionary<string, int>>();
+            Console.WriteLine($"[{string.Join(", ", numbers)}]");
         }
     }
 }
