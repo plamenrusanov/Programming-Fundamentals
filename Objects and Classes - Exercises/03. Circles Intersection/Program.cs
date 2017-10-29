@@ -37,7 +37,7 @@ namespace _03.Circles_Intersection
         {
 
             return Math.Sqrt( Math.Pow(x1, 2) + Math.Pow(y2, 2));
-            //throw new NotImplementedException();
+           
         }
     }
 }

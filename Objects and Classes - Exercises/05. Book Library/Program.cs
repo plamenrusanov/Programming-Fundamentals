@@ -20,8 +20,7 @@ namespace _05.Book_Library
                 }
                 data[input[1]].Add(new Book(input));
                 Library library = new Library(input);
-                library.Name = input[1];
-                           
+                library.Name = input[1];                          
                 library.Books.Add(new Book(input));
             }
            
